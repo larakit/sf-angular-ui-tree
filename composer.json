@@ -1,0 +1,14 @@
+{
+    "name": "larakit/sf-angular-ui-tree",
+    "description": "[Larakit] [staticfiles] sf-angular-ui-tree",
+    "version": "2.0.0",
+    "license": "MIT",
+    "require":{
+        "larakit/sf-angular":"*"
+    },
+    "autoload": {
+        "files": [
+            "init.php"
+        ]
+    }
+}
