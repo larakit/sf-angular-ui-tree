@@ -1,0 +1,305 @@
+.tree-hidden {
+    display : none;
+}
+
+.tree-toggle,
+.tree-controls,
+.tree-controls-btn {
+    background-color      : #e0e1e2;
+    border                : 1px solid rgba(0, 0, 0, 0.2);
+    cursor                : pointer;
+    -webkit-border-radius : 5px;
+    -moz-border-radius    : 5px;
+    border-radius         : 5px;
+    z-index               : 3;
+}
+
+.tree-toggle,
+.tree-controls {
+    position : absolute;
+    width    : 20px;
+    height   : 20px;
+    margin   : 0 10px 0 0;
+}
+
+.tree-node:before,
+.tree-node:after {
+    content : "";
+    display : table;
+    clear   : both;
+}
+
+.tree-toggle .fa-chevron-right,
+.tree-toggle .fa-chevron-down {
+    position  : absolute;
+    top       : 50%;
+    left      : 50%;
+    color     : rgba(0, 0, 0, 0.7);
+    font-size : 14px;
+    opacity   : 0.9;
+}
+
+.tree-toggle .fa-chevron-down {
+    margin : -7px 0 0 -7px;
+}
+
+.tree-toggle .fa-chevron-right {
+    margin : -6px 0 0 -4px;
+}
+
+.tree-node-content {
+    position              : relative;
+    background            : rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color                 : rgba(0, 0, 0, 0.87);
+    min-height            : 45px;
+    padding               : 12px;
+    margin                : 0 0 10px 0;
+    -webkit-box-shadow    : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
+    -moz-box-shadow       : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
+    box-shadow            : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
+    -webkit-border-radius : 3px;
+    -moz-border-radius    : 3px;
+    border-radius         : 3px;
+    font-family           : sans-serif;
+}
+
+.tree-label-group {
+    position : relative;
+    width    : 100%;
+}
+
+.tree-label,
+.tree-label-type {
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+}
+
+.tree-label {
+    width       : 55%;
+    color       : rgba(0, 0, 0, 0.7);
+    float       : left;
+    white-space : nowrap;
+    padding     : 0 0 0 35px;
+    overflow    : hidden;
+    z-index     : 0;
+}
+
+.tree-icon {
+    float  : left;
+    margin : 0 5px 0 10px;
+}
+
+.tree-label-type {
+    position  : absolute;
+    top       : 0;
+    right     : 40px;
+    float     : right;
+    font-size : 12px;
+}
+
+.tree-label-type span {
+    color                 : #FFFFFF;
+    background-color      : #a94442;
+    padding               : 5px;
+    -webkit-border-radius : 5px;
+    -moz-border-radius    : 5px;
+    border-radius         : 5px;
+}
+
+.tree-controls {
+    position : absolute;
+    top      : 8px;
+    right    : 0;
+    padding  : 3px;
+}
+
+.tree-controls:before {
+    content     : "\f013";
+    font-size   : 22px;
+    font-family : FontAwesome;
+    font-weight : 400;
+}
+
+.tree-controls:hover:before {
+    display : none;
+}
+
+.tree-controls-btn {
+    display    : none;
+    position   : static;
+    text-align : center;
+    padding    : 0;
+}
+
+.tree-controls:hover {
+    width : auto;
+}
+
+.tree-controls:hover .tree-controls-btn {
+    display : inline;
+}
+
+.tree-controls-btn .fa {
+    position : static;
+    margin   : auto;
+}
+
+@media (max-width : 480px) {
+    .tree-label {
+        width     : 70%;
+        font-size : 10px;
+    }
+
+    .tree-label-type {
+        font-size : 10px;
+    }
+
+    .tree-label-type span {
+        padding               : 3px 5px;
+        -webkit-border-radius : 3px;
+        -moz-border-radius    : 3px;
+        border-radius         : 3px;
+    }
+}
+
+
+
+.angular-ui-tree-nodes .angular-ui-tree-nodes {
+    padding-left : 45px;
+}
+
+.rows {
+    padding : 0 30px;
+}
+
+.entity:after, .entity:before {
+    display : table;
+    content : " ";
+}
+
+.entity {
+    position              : relative;
+    background            : rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color                 : rgba(0, 0, 0, 0.87);
+    min-height            : 40px;
+    -webkit-box-shadow    : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
+    -moz-box-shadow       : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
+    box-shadow            : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
+    -webkit-border-radius : 3px;
+    -moz-border-radius    : 3px;
+    border-radius         : 3px;
+    font-family           : sans-serif;
+    padding               : 10px 0;
+    margin                : 0 0 10px 0;
+}
+
+.entity-nodes-toggler {
+    float  : left;
+    margin : 0 15px;
+}
+
+.entity-title {
+    margin-left  : 15px;
+    font-size    : 14px;
+    font-weight  : bold;
+    margin-right : 55px;
+    overflow     : hidden;
+    white-space  : nowrap;
+}
+
+.entity-type {
+    float : right;
+}
+
+.entity-title > .fa {
+    width : 20px;
+}
+
+.entity-controls {
+    background-color      : #e0e1e2;
+    border                : 1px solid rgba(0, 0, 0, 0.2);
+    cursor                : pointer;
+    -webkit-border-radius : 5px;
+    -moz-border-radius    : 5px;
+    border-radius         : 5px;
+    z-index               : 3;
+    position              : absolute;
+    width                 : 32px;
+    /*width                 : auto;*/
+    height                : 32px;
+    margin                : 0 10px 0 0;
+    right                 : -3px;
+    top                   : 4px;
+    padding               : 2px;
+}
+
+.entity-controls:before {
+    content     : "\f013";
+    font-family : FontAwesome;
+    color       : #c2c2c2;
+    top         : 5px;
+    right       : 8px;
+    position    : absolute;
+    font-size   : 20px;
+    width       : 15px;
+}
+
+.entity-controls:hover:before {
+    display : none;
+}
+
+.entity-controls:hover {
+    width : auto;
+}
+
+.entity-controls:hover .entity-controls-btn {
+    display : inline-block;
+}
+
+.entity-controls, .entity-controls-btn {
+    background-color      : #e0e1e2;
+    border                : 1px solid rgba(0, 0, 0, 0.2);
+    cursor                : pointer;
+    -webkit-border-radius : 5px;
+    -moz-border-radius    : 5px;
+    border-radius         : 5px;
+    z-index               : 3;
+}
+
+.entity-controls-btn {
+    background-color      : #e0e1e2;
+    border                : 1px solid rgba(0, 0, 0, 0.2);
+    cursor                : pointer;
+    -webkit-border-radius : 5px;
+    -moz-border-radius    : 5px;
+    border-radius         : 5px;
+    z-index               : 3;
+    display               : none;
+    position              : static;
+    text-align            : center;
+    padding               : 2px;
+    width                 : 26px;
+    font-size             : 10px;
+}
+
+.entity-icon {
+    float       : left;
+    margin-left : -15px;
+}
+
+.entity-nodes-toggler + .entity-icon {
+    margin-left : 5px;
+}
+
+.entity-nodes-toggler + .entity-icon + .entity-title {
+    margin-left : 15px;
+}
+
+.entity-nodes-toggler + .entity-title {
+    margin-left : 10px;
+}
+
+.entity-icon + .entity-title {
+    margin-left : 5px;
+}

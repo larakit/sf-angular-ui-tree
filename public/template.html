@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular tree</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="lk-grid.css">
+    <link rel="stylesheet" href="entity.css">
+    <link rel="stylesheet" href="/vendor/admin-lte/bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-app="myApp">
+<div ng-controller="mainCtrl">
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle class="tree-node tree-node-content entity">
+            <div class="entity-nodes-toggler" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><i class="fa"
+                                                                                                                                 ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"
+                                                                                                                                 aria-hidden="true"></i></div>
+            <div class="entity-title"><i class="fa fa-lock"></i> {{node.title}}</div>
+            <div class="entity-controls">
+                <div class="entity-controls-btn"><i class="fa fa-lock"></i></div>
+                <div class="entity-controls-btn"><i class="fa fa-user"></i></div>
+                <div class="entity-controls-btn"><i class="fa fa-times"></i></div>
+            </div>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{'tree-hidden': collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+        </ol>
+    </script>
+
+    <div ui-tree="treeOptions" id="tree-root" class="tree" data-drag-delay="200">
+        <ol ui-tree-nodes ng-model="data">
+            <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+        </ol>
+    </div>
+</div>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
