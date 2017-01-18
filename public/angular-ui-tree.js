@@ -1,5 +1,5 @@
 /**
- * @license Angular UI Tree v2.22.1
+ * @license Angular UI Tree v2.22.2
  * (c) 2010-2016. https://github.com/angular-ui-tree/angular-ui-tree
  * License: MIT
  */
@@ -631,7 +631,6 @@
                             bindDragMoveEvents,
                             unbindDragMoveEvents,
                             keydownHandler,
-                            outOfBounds,
                             isHandleChild,
                             el,
                             isUiTreeRoot,
@@ -1029,29 +1028,6 @@
                                     dragElm[0].style.display = displayElm;
                                 }
 
-                                //This checks if angularUiTree attributes are found on element.
-                                outOfBounds = !UiTreeHelper.elementIsTreeNodeHandle(targetElm) &&
-                                    !UiTreeHelper.elementIsTreeNode(targetElm) &&
-                                    !UiTreeHelper.elementIsTreeNodes(targetElm) &&
-                                    !UiTreeHelper.elementIsTree(targetElm) &&
-                                    !UiTreeHelper.elementIsPlaceholder(targetElm);
-
-                                //Detect out of bounds condition, update drop target display, and prevent drop, also reset parent to source.
-                                if (outOfBounds) {
-
-                                    //Remove the placeholder.
-                                    placeElm.remove();
-
-                                    //If the target was an empty tree, replace the empty element placeholder.
-                                    if (treeScope) {
-                                        treeScope.resetEmptyElement();
-                                        treeScope = null;
-                                    }
-
-                                    //Reset parent to source parent.
-                                    dragInfo.resetParent();
-                                }
-
                                 //Assigning scope to target you are moving draggable over.
                                 if (UiTreeHelper.elementIsTree(targetElm)) {
                                     targetNode = targetElm.controller('uiTree').scope;
@@ -1220,9 +1196,6 @@
                                         } else if (!targetBefore && targetNode.accept(scope, targetNode.childNodesCount())) {
                                             targetNode.$childNodesScope.$element.append(placeElm);
                                             dragInfo.moveTo(targetNode.$childNodesScope, targetNode.childNodes(), targetNode.childNodesCount());
-                                        } else {
-                                            outOfBounds = true;
-                                            dragInfo.resetParent();
                                         }
                                     }
                                 }
@@ -1251,7 +1224,7 @@
 
                                 //Promise resolved (or callback didn't return false)
                                     .then(function (allowDrop) {
-                                        if (allowDrop !== false && scope.$$allowNodeDrop && !outOfBounds) {
+                                        if (allowDrop !== false && scope.$$allowNodeDrop) {
                                             //Node drop accepted.
                                             dragInfo.apply();
 
