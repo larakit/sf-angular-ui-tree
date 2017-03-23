@@ -4,8 +4,6 @@
 
 .tree-toggle,
 .tree-controls {
-    background-color      : #e0e1e2;
-    border                : 1px solid rgba(0, 0, 0, 0.2);
     cursor                : pointer;
     -webkit-border-radius : 5px;
     -moz-border-radius    : 5px;
@@ -21,11 +19,38 @@
     margin   : 0 10px 0 0;
 }
 
+.tree-node {
+    position : relative;
+}
+
 .tree-node:before,
 .tree-node:after {
     content : "";
     display : table;
     clear   : both;
+}
+
+.tree-toggle-wrapper {
+    position           : absolute;
+    top                : 0;
+    left               : 0;
+    bottom             : 0;
+    width              : 50px;
+    margin             : 0 10px 10px 0;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+}
+
+.tree-toggle {
+    position         : absolute;
+    top              : 50%;
+    left             : 50%;
+    bottom           : 0;
+    right            : 0;
+    background-color : #f8faff;
+    border           : 1px solid rgba(0, 0, 0, 0.2);
+    margin           : -10px 0 0 -10px;
 }
 
 .tree-toggle .fa-chevron-right,
@@ -48,9 +73,10 @@
 
 .tree-node-content {
     position              : relative;
-    background-color      : rgb(255, 255, 255);
+    height                : auto;
     color                 : rgba(0, 0, 0, 0.87);
-    min-height            : 45px;
+    background            : #f8faff;
+    border                : 1px solid #dae2ea;
     padding               : 12px;
     margin                : 0 0 10px 0;
     -webkit-box-shadow    : 0 0 0 1px rgba(34, 36, 38, 0.1) inset, 0 0 0 0 transparent;
@@ -60,6 +86,15 @@
     -moz-border-radius    : 3px;
     border-radius         : 3px;
     font-family           : sans-serif;
+}
+
+.tree-node-content:before,
+.tree-node-content::before,
+.tree-node-content:after,
+.tree-node-content::after {
+    content : "";
+    display : table;
+    clear   : both;
 }
 
 .tree-label-group {
@@ -79,14 +114,14 @@
     color       : rgba(0, 0, 0, 0.7);
     float       : left;
     white-space : nowrap;
-    padding     : 0 0 0 35px;
+    padding     : 0;
     overflow    : hidden;
     z-index     : 0;
 }
 
 .tree-icon {
     float  : left;
-    margin : 0 5px 0 10px;
+    margin : 0 20px 0 10px;
 }
 
 .tree-label-type {
@@ -141,12 +176,14 @@
     content     : "...";
     position    : absolute;
     top         : 50%;
-    right       : 50%;
-    width       : 10px;
+    width       : 100%;
     height      : 10px;
+    color       : #000000;
     font-size   : 18px;
     line-height : 0;
-    margin      : -4px -4px 0 0;
+    text-align  : center;
+    padding     : 0 0 0 1px;
+    margin      : -4px 0 0 0;
 }
 
 .tree-controls-open .tree-controls-toggle {
@@ -159,6 +196,7 @@
 .tree-controls-list {
     position              : relative;
     display               : none;
+    color                 : #000000;
     background-color      : #e0e1e2;
     border                : 1px solid rgba(0, 0, 0, 0.2);
     list-style            : none;
@@ -205,50 +243,44 @@
     }
 }
 
-
 .angular-ui-tree-handle {
-    background: #f8faff;
-    border: 1px solid #dae2ea;
-    color: #7c9eb2;
-    padding: 10px 10px;
+    color       : #7c9eb2;
+    padding     : 0 0 0 50px;
+    font-weight : normal;
 }
 
-.angular-ui-tree-handle:hover {
-    color: #438eb9;
-    background: #f4f6f7;
-    border-color: #dce2e8;
+.angular-ui-tree-handle:hover .tree-node-content {
+    color        : #438eb9;
+    background   : #f4f6f7;
+    border-color : #dce2e8;
 }
 
 .angular-ui-tree-placeholder {
-    background: #f0f9ff;
-    border: 2px dashed #bed2db;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    background         : #f0f9ff;
+    border             : 2px dashed #bed2db;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+    margin-left        : 52px;
 }
 
 tr.angular-ui-tree-empty {
-    height:100px
+    height : 100px
 }
 
 .group-title {
-    background-color: #687074 !important;
-    color: #FFF !important;
-}
-
-
-
-.angular-ui-tree-handle:hover {
+    background-color : #687074 !important;
+    color            : #FFF !important;
 }
 
 .angular-ui-tree-placeholder {
-    background: #f0f9ff;
-    border: 2px dashed #bed2db;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    background         : #f0f9ff;
+    border             : 2px dashed #bed2db;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
 }
 
 .angular-ui-tree-nodes .angular-ui-tree-nodes {
-    padding-left: 40px;
+    padding-left : 40px;
 }
