@@ -3,7 +3,6 @@
     ->usePackage('larakit/sf-angular')
     ->usePackage('larakit/sf-font-awesome')
     ->setSourceDir('public')
-    ->ngModule('ui.tree')
     ->jsPackage('angular-ui-tree.js')
     ->cssPackage('angular-ui-tree.css')
     ->cssPackage('main.css')
