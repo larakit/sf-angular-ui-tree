@@ -7,3 +7,4 @@
     ->cssPackage('angular-ui-tree.css')
     ->cssPackage('main.css')
 ;
+\Larakit\LkNgModule::register('ui.tree');
